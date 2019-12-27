@@ -1,5 +1,6 @@
 # create s3 bucket
-aws s3 mb s3://dagistan-sam
+# aws s3 mb s3://dagistan-sam
+# no need to re-create buket
 
 # package
 aws cloudformation package --s3-bucket dagistan-sam --template-file template.yaml --output-template-file gen/template-generated.yaml

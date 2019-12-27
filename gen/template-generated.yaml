@@ -1,13 +1,18 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: A starter AWS Lambda function.
+Description: Api Gateway and Lambda
 Resources:
-  helloworldpython3:
+  microservicehttpendpointpython3:
     Type: AWS::Serverless::Function
     Properties:
       Handler: app.lambda_handler
       Runtime: python3.6
-      CodeUri: s3://dagistan-sam/89b21b89da2d9d0be73e26ad9b5c99e9
-      Description: A starter AWS Lambda function.
+      CodeUri: s3://dagistan-sam/a15b2db80a42cc3946cf14cd58e647c5
       MemorySize: 128
       Timeout: 3
+      Events:
+        HelloWorldSAMApi:
+          Type: Api
+          Properties:
+            Path: /hello
+            Method: GET
